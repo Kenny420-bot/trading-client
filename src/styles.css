@@ -6,11 +6,19 @@
 }
 :root{
     --primary-color: rgb(198,82,0);
+    --trans-white-1: rgba(255,255,255,0.1);
+    --trans-white-2: rgba(255,255,255,0.03);
+    --nav-bright:rgba(255,255,255,0.5);
+    --nav-dark: rgba(255,255,255,0.2);
+    --partial-white: #ccc;
+    --dark: rgb(16,19,26);
 }
 html, body {
     height: 100%; 
 }
 body { 
     margin: 0; 
-    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background: var(--dark);
+    height: 100vh;
 }

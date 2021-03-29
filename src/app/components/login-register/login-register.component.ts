@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login-register.component.css']
 })
 export class LoginRegisterComponent implements OnInit {
+  hide:boolean = true;
   login_email: string;
   login_password: string;
   register_first_name: string;

@@ -1,0 +1,71 @@
+.nav-bar{
+    width: 100%;
+    height: 60px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+    border-bottom: 1px solid var(--trans-white-2);
+    padding: 0 20px;
+}
+.nav-bar .side-one{
+    width: fit-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-bar .side-one .logo{
+    font-size: .8rem;
+    color: var(--partial-white);
+    margin-right: 150px;
+}
+.nav-bar .side-one .logo h1 span{
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    text-transform: uppercase;
+}
+.nav-bar .side-one .nav a{
+    text-decoration: none;
+    color: var(--nav-dark);
+    margin-right: 40px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    height: fit-content;
+    transition: all .2s ease;
+}
+.nav-bar .side-one .nav a:hover{
+    color: var(--nav-bright);
+}
+.nav-bar .side-two{
+
+    width: fit-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-bar .side-two .balance h1{
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--primary-color);
+}
+.nav-bar .side-two .info{
+    margin-left: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav-bar .side-two .info mat-icon{
+    font-size: 2rem;
+    margin-right: 30px;
+    color: var(--partial-white);
+}
+.nav-bar .side-two .info .person-info h1{
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--partial-white);
+}
+.nav-bar .side-two .info .person-info h3{
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--partial-white);
+}   
