@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
-
+import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from './app-routing.module';
 
 import {MatCardModule} from '@angular/material/card';
@@ -21,6 +21,11 @@ import { TradeViewComponent } from './components/trade-view/trade-view.component
 import { PortfolioViewComponent } from './components/portfolio-view/portfolio-view.component';
 import { AccountViewComponent } from './components/account-view/account-view.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { AuthenticationService } from './services/authentication.service';
+import { OrderService } from './services/order.service';
+import { PortfolioService } from './services/portfolio.service';
+import { AccountService } from './services/account.service';
+
 
 @NgModule({
   declarations: [
@@ -36,6 +41,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    HttpClientModule,
     AppRoutingModule,
     MatCardModule,
     MatTabsModule,
@@ -46,7 +52,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     MatDividerModule,
     MatTableModule
   ],
-  providers: [],
+  providers: [AuthenticationService, OrderService,PortfolioService, AccountService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

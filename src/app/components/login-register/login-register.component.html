@@ -3,6 +3,10 @@
     <div class="side-one">
         <h1>Welcome to <span>KEPF</span> Trading Platform</h1>
         <h3>More than just a platform.</h3>
+        <h3 *ngIf="is_loading">Requesting...</h3>
+
+        <h3>{{responseMessage}}</h3>
+
     </div>
     <div class="side-two">
         <mat-card class="log-reg-card ">
@@ -17,7 +21,7 @@
                             <mat-icon style="margin-right: 10px;" class="example-tab-icon">account_circle</mat-icon>
                             Login
                         </ng-template>
-                        <form class="login-form">
+                        <form class="login-form" (ngSubmit)="loginUser()">
                             <mat-form-field class="full-width">
                                 <mat-label>Email</mat-label>
                                 <input [(ngModel)]="login_email" name="login_email" autocomplete="off" type="email"
@@ -34,9 +38,9 @@
                                     </mat-icon>
                                 </button>
                             </mat-form-field>
-
-                            <button (click)="loginUser()" class="full-width" mat-raised-button
-                                color="primary">Login</button>
+                            
+                            <button  class="full-width" mat-raised-button
+                                color="primary" type="submit">Login</button>
                         </form>
                     </mat-tab>
                     <mat-tab>
@@ -44,7 +48,7 @@
                             <mat-icon style="margin-right: 10px;" class="example-tab-icon">assignment_ind</mat-icon>
                             Register
                         </ng-template>
-                        <form class="register-form">
+                        <form class="register-form" (ngSubmit)="registerUser()">
                             <table class="full-width" cellspacing="0">
                                 <tr>
                                     <td>
@@ -81,8 +85,8 @@
                                 </button>
 
                             </mat-form-field>
-                            <button (click)="registerUser()" class="full-width" mat-raised-button
-                                color="primary">Register</button>
+                            <button class="full-width" mat-raised-button
+                                color="primary" type="submit">Register</button>
                         </form>
                     </mat-tab>
                 </mat-tab-group>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Order } from 'src/app/models/Order';
+import { OrderService } from 'src/app/services/order.service';
 
 @Component({
   selector: 'app-trade-view',
@@ -10,25 +12,86 @@ import { Component, OnInit } from '@angular/core';
 
 
 export class TradeViewComponent implements OnInit {
-  ELEMENT_DATA = [
-    {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-    {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-    {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-    {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-    {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-    {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-    {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-    {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-    {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-    {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-  ];
+  product:string
+  quantity:number
+  price:number
+  side:string
+  responseMessage:string
+  is_loading:boolean=false
+  is_submiting:boolean=false
+  customerOrders:any[]
+  customerPendingOrders:any[]
+  customerCompleteOrders:any[]
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = this.ELEMENT_DATA
 
-  constructor() { }
+
+  constructor(private orderService:OrderService) { }
 
   ngOnInit(): void {
+    this.getCustomerOrders()
+    this.getCustomerPendingOrders()
+    this.getCustomerCompleteOrders()
+    
   }
+
+
+  getCustomerOrders(){
+    this.is_loading=true;
+    this.orderService.getCustomerOrders( ).subscribe(response=>{
+      if(response.status!=200){
+        this.is_loading=false
+        this.customerOrders=[]
+      }
+      this.is_loading=false
+      this.customerOrders = response.data
+      console.log(this.customerOrders)
+    })
+  }
+  getCustomerPendingOrders(){
+    this.is_loading=true;
+    this.orderService.getCustomerPendingOrders( ).subscribe(response=>{
+      if(response.status!=200){
+        this.is_loading=false
+        this.customerPendingOrders=[]
+      }
+      this.is_loading=false
+      this.customerPendingOrders = response.data
+    })
+  }
+
+  getCustomerCompleteOrders(){
+    this.is_loading=true;
+    this.orderService.getSuccessfulCustomerOrders( ).subscribe(response=>{
+      if(response.status!=200){
+        this.is_loading=false
+        this.customerCompleteOrders=[]
+      }
+      this.is_loading=false
+      this.customerCompleteOrders = response.data
+      
+    })
+  }
+  createOrder(){
+    const orderDetails:Order={
+      price:this.price,
+      quantity:this.quantity,
+      side:this.side,
+      product:this.product,
+      customerId:localStorage.getItem('userId')
+      
+    }
+    this.is_submiting=true
+    this.orderService.createOrder(orderDetails).subscribe(response=>{
+      if(response.status!=200){
+        this.is_loading=false
+        this.responseMessage='error submitting order. Please try again'
+        return
+      }
+      this.is_submiting=false
+      this.responseMessage=response.message
+    })
+
+  }
+
 
 }
