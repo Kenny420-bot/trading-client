@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PortfolioRequest } from 'src/app/models/Portfolio';
+import { PortfolioService } from 'src/app/services/portfolio.service';
 
 @Component({
   selector: 'app-portfolio-view',
@@ -7,9 +9,46 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PortfolioViewComponent implements OnInit {
 
-  constructor() { }
+  customerPortofolio:any[]
+  is_loading:boolean = false
+
+
+  constructor(private portfolioService:PortfolioService) { }
 
   ngOnInit(): void {
+    this.getCustomerPortfolio()
+  }
+  
+  getCustomerPortfolio(){
+    this.is_loading=true
+    return this.portfolioService.getUserPortfolio().subscribe(response=>{
+      if(response.status!=200){
+        this.is_loading=false
+        this.customerPortofolio=[]
+        return
+      }
+      this.is_loading=false
+      this.customerPortofolio = response.data
+      console.log(response.data)
+    })
+  }
+
+  addItemToPortfolio(orderId:number){
+      const portfolioRequest:PortfolioRequest={
+        order_id:orderId,
+        customer_id:localStorage.getItem('userId')
+
+      }
+    this.portfolioService.addItemToPortfolio(portfolioRequest).subscribe(response=>{
+      console.log(response.data)
+    })
+
+  }
+
+  deleteItemfromPortfolio(itemId:number){
+    this.portfolioService.deleteItemFromPportfolio(itemId).subscribe(response=>{
+      console.log(response)
+    })
   }
 
 }
