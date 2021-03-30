@@ -58,43 +58,48 @@
                     </tr>
 
                 </table>
-
+               
             </div>
         </div>
-        <form>
+        <form (ngSubmit)="createOrder()">
             <fieldset class="main-fieldset">
+                <h3>{{responseMessage}}</h3>
+                <h3 *ngIf="is_submiting">submiting....</h3>
+
                 <legend>Make Order</legend>
                 <div>
-                    <select name="products" class="products">
+                    <select [(ngModel)]="product" name="product" class="products">
                         <option>-select product-</option>
                         <option value="MSFT">MSFT(Microsoft Corp.)</option>
                         <option value="GOOGL">GOOGL(Google Inc.)</option>
                         <option value="TSLA">TSLA(Tesla Inc.)</option>
-                        <option value="APPL">APPL(Apple Inc.)</option>
+                        <option value="AAPL">AAPL(AAPL Inc.)</option>
+                        <option value="IBM">IBM(IBM Inc.)</option>
+                        
                     </select>
                 </div>
                 <div>
                     <fieldset>
                         <legend>quantity</legend>
-                        <input type="number">
+                        <input [(ngModel)]="quantity" name="quantity" type="number">
                     </fieldset>
                 </div>
                 <div>
                     <fieldset>
                         <legend>price</legend>
-                        <input type="number">
+                        <input [(ngModel)]="price" name="price" type="number">
                     </fieldset>
                 </div>
                 <div>
                     <fieldset>
                         <legend>select side</legend>
-                        <input type="radio" id="buy" name="side" value="buy">
+                        <input [(ngModel)]="side" type="radio" id="buy" name="side" value="buy">
                         <label for="buy">buy</label><br>
-                        <input type="radio" id="sell" name="side" value="sell">
+                        <input [(ngModel)]="side" type="radio" id="sell" name="side" value="sell">
                         <label for="sell">sell</label><br>
                     </fieldset>
                 </div>
-                <button>Submit</button>
+                <button type="submit">Submit</button>
             </fieldset>
         </form>
     </div>
