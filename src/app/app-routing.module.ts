@@ -8,14 +8,16 @@ import { PortfolioViewComponent } from './components/portfolio-view/portfolio-vi
 import { AccountViewComponent } from './components/account-view/account-view.component';
 
 const routes: Routes = [
-  { path: '',   redirectTo: 'login', pathMatch: 'full' },
-    { path: 'login', component: LoginRegisterComponent },
-    { path: 'dashboard', children:[
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: LoginRegisterComponent },
+  {
+    path: 'dashboard', children: [
       { path: 'trade', component: TradeViewComponent },
       { path: 'portfolio', component: PortfolioViewComponent },
       { path: 'account', component: AccountViewComponent },
-    ], component: DashboardComponent },
-    // { path: '**', component: '' }
+    ], component: DashboardComponent
+  },
+  // { path: '**', component: '' }
 
 ]; // sets up routes constant where you define your routes
 

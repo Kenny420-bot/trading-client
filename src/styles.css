@@ -6,12 +6,15 @@
 }
 :root{
     --primary-color: rgb(198,82,0);
+    --primary-dark-color: rgb(179, 75, 1);
     --trans-white-1: rgba(255,255,255,0.1);
     --trans-white-2: rgba(255,255,255,0.03);
     --nav-bright:rgba(255,255,255,0.5);
     --nav-dark: rgba(255,255,255,0.2);
     --partial-white: #ccc;
+    --secondary-color: rgba(39, 32, 32, 0.03);
     --dark: rgb(16,19,26);
+    --shadow-white: rgba(255, 255, 255, 0.1);
 }
 html, body {
     height: 100%; 
@@ -21,4 +24,21 @@ body {
     font-family: Roboto, "Helvetica Neue", sans-serif;
     background: var(--dark);
     height: 100vh;
+}
+
+/* MATERIAL */
+.mat-tab-label-content {
+    color: var(--partial-white) !important;
+    text-transform: uppercase;
+    font-size: .8rem;
+    letter-spacing: 1px;
+}
+.mat-tab-label{
+    background: var(--trans-white-1);
+    margin-right: 5px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.mat-ink-bar{
+    background: var(--primary-color) !important;
 }

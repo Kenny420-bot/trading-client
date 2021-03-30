@@ -20,17 +20,21 @@
                         <form class="login-form">
                             <mat-form-field class="full-width">
                                 <mat-label>Email</mat-label>
-                                <input [(ngModel)]="login_email" name="login_email" autocomplete="off" type="email" matInput>
+                                <input [(ngModel)]="login_email" name="login_email" autocomplete="off" type="email"
+                                    matInput>
                                 <mat-icon matSuffix>email</mat-icon>
                             </mat-form-field>
                             <mat-form-field class="full-width">
                                 <mat-label>Password</mat-label>
-                                <input [(ngModel)]="login_password" name="login_password" [type]="hide ? 'password' : 'text'" matInput>
-                                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                                    <mat-icon style="font-size: 1.2rem;">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                                    </button>
+                                <input [(ngModel)]="login_password" name="login_password"
+                                    [type]="hide ? 'password' : 'text'" matInput>
+                                <button mat-icon-button matSuffix (click)="hide = !hide"
+                                    [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                    <mat-icon style="font-size: 1.2rem;">{{hide ? 'visibility_off' : 'visibility'}}
+                                    </mat-icon>
+                                </button>
                             </mat-form-field>
-                            
+
                             <button (click)="loginUser()" class="full-width" mat-raised-button
                                 color="primary">Login</button>
                         </form>
@@ -46,13 +50,15 @@
                                     <td>
                                         <mat-form-field class="full-width">
                                             <mat-label>First Name</mat-label>
-                                            <input [(ngModel)]="register_first_name" name="register_first_name" autocomplete="off" type="text" matInput>
+                                            <input [(ngModel)]="register_first_name" name="register_first_name"
+                                                autocomplete="off" type="text" matInput>
                                         </mat-form-field>
                                     </td>
                                     <td>
                                         <mat-form-field class="full-width">
                                             <mat-label>Last Name</mat-label>
-                                            <input [(ngModel)]="register_last_name" name="register_last_name"autocomplete="off" type="text" matInput>
+                                            <input [(ngModel)]="register_last_name" name="register_last_name"
+                                                autocomplete="off" type="text" matInput>
                                             <mat-icon matSuffix>person-outline-icon</mat-icon>
                                         </mat-form-field>
                                     </td>
@@ -60,15 +66,19 @@
                             </table>
                             <mat-form-field class="full-width">
                                 <mat-label>Email</mat-label>
-                                <input [(ngModel)]="register_email" name="register_email" autocomplete="off" type="email" matInput>
+                                <input [(ngModel)]="register_email" name="register_email" autocomplete="off"
+                                    type="email" matInput>
                                 <mat-icon matSuffix>mail</mat-icon>
                             </mat-form-field>
                             <mat-form-field class="full-width">
                                 <mat-label>Password</mat-label>
-                                <input [(ngModel)]="register_password" name="register_password" [type]="hide ? 'password' : 'text'" matInput>
-                                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                                    <mat-icon style="font-size: 1.2rem;">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                                    </button>
+                                <input [(ngModel)]="register_password" name="register_password"
+                                    [type]="hide ? 'password' : 'text'" matInput>
+                                <button mat-icon-button matSuffix (click)="hide = !hide"
+                                    [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                    <mat-icon style="font-size: 1.2rem;">{{hide ? 'visibility_off' : 'visibility'}}
+                                    </mat-icon>
+                                </button>
 
                             </mat-form-field>
                             <button (click)="registerUser()" class="full-width" mat-raised-button

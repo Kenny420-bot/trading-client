@@ -63,7 +63,7 @@
         </div>
         <form>
             <fieldset class="main-fieldset">
-                <legend>Make Order</legend>
+                <legend>Place Order</legend>
                 <div>
                     <select name="products" class="products">
                         <option>-select product-</option>
@@ -75,19 +75,19 @@
                 </div>
                 <div>
                     <fieldset>
-                        <legend>quantity</legend>
+                        <legend>quantity:</legend>
                         <input type="number">
                     </fieldset>
                 </div>
                 <div>
                     <fieldset>
-                        <legend>price</legend>
+                        <legend>price:</legend>
                         <input type="number">
                     </fieldset>
                 </div>
                 <div>
                     <fieldset>
-                        <legend>select side</legend>
+                        <legend>select side:</legend>
                         <input type="radio" id="buy" name="side" value="buy">
                         <label for="buy">buy</label><br>
                         <input type="radio" id="sell" name="side" value="sell">
@@ -98,5 +98,209 @@
             </fieldset>
         </form>
     </div>
-    <div class="trade-view-bottom"></div>
+    <div class="trade-view-bottom">
+        <div class="order-view">
+            <mat-tab-group mat-align-tabs="start">
+                <mat-tab label="Pending Orders">
+                    <div class="card">
+                        <div class="card-body">
+                            <table class="table">
+                                <tr>
+                                    <th>
+                                        Date Time
+                                    </th>
+                                    <th>
+                                        Ticker
+                                    </th>
+                                    <th>
+                                        Side
+                                    </th>
+                                    <th>
+                                        Quantity
+                                    </th>
+                                    <th>
+                                        Price
+                                    </th>
+                                    <th>
+                                        Total Amount
+                                    </th>
+                                    <th>
+
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>Feb 19, 2020 10:01:32</td>
+                                    <td>IBM</td>
+                                    <td>BUY</td>
+                                    <td>100</td>
+                                    <td>1.7</td>
+                                    <td>170</td>
+                                    <td>
+                                        <button>cancel</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Feb 19, 2020 10:01:32</td>
+                                    <td>IBM</td>
+                                    <td>BUY</td>
+                                    <td>100</td>
+                                    <td>1.7</td>
+                                    <td>170</td>
+                                    <td>
+                                        <button>cancel</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Feb 19, 2020 10:01:32</td>
+                                    <td>IBM</td>
+                                    <td>BUY</td>
+                                    <td>100</td>
+                                    <td>1.7</td>
+                                    <td>170</td>
+                                    <td>
+                                        <button>cancel</button>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Successful Orders">
+                    <div class="card">
+                        <div class="card-body">
+                            <table class="table">
+                                <tr>
+                                    <th>
+                                        Date Time
+                                    </th>
+                                    <th>
+                                        Ticker
+                                    </th>
+                                    <th>
+                                        Side
+                                    </th>
+                                    <th>
+                                        Quantity
+                                    </th>
+                                    <th>
+                                        Price
+                                    </th>
+                                    <th>
+                                        Total Amount
+                                    </th>
+                                    <th>
+
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>Feb 19, 2020 10:01:32</td>
+                                    <td>IBM</td>
+                                    <td>BUY</td>
+                                    <td>100</td>
+                                    <td>1.7</td>
+                                    <td>170</td>
+                                    <td>
+                                        <button>cancel</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Feb 19, 2020 10:01:32</td>
+                                    <td>IBM</td>
+                                    <td>BUY</td>
+                                    <td>100</td>
+                                    <td>1.7</td>
+                                    <td>170</td>
+                                    <td>
+                                        <button>cancel</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Feb 19, 2020 10:01:32</td>
+                                    <td>IBM</td>
+                                    <td>BUY</td>
+                                    <td>100</td>
+                                    <td>1.7</td>
+                                    <td>170</td>
+                                    <td>
+                                        <button>cancel</button>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Cancelled Orders">
+                    <div class="card">
+                        <div class="card-body">
+                            <table class="table">
+                                <tr>
+                                    <th>
+                                        Date Time
+                                    </th>
+                                    <th>
+                                        Ticker
+                                    </th>
+                                    <th>
+                                        Side
+                                    </th>
+                                    <th>
+                                        Quantity
+                                    </th>
+                                    <th>
+                                        Price
+                                    </th>
+                                    <th>
+                                        Total Amount
+                                    </th>
+                                    <th>
+
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>Feb 19, 2020 10:01:32</td>
+                                    <td>IBM</td>
+                                    <td>BUY</td>
+                                    <td>100</td>
+                                    <td>1.7</td>
+                                    <td>170</td>
+                                    <td>
+                                        <button>cancel</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Feb 19, 2020 10:01:32</td>
+                                    <td>IBM</td>
+                                    <td>BUY</td>
+                                    <td>100</td>
+                                    <td>1.7</td>
+                                    <td>170</td>
+                                    <td>
+                                        <button>cancel</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Feb 19, 2020 10:01:32</td>
+                                    <td>IBM</td>
+                                    <td>BUY</td>
+                                    <td>100</td>
+                                    <td>1.7</td>
+                                    <td>170</td>
+                                    <td>
+                                        <button>cancel</button>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+
+        </div>
+        <!-- <div class="market-history">
+
+        </div> -->
+    </div>
 </div>
