@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Order } from 'src/app/models/Order';
 import { OrderService } from 'src/app/services/order.service';
+import { PortfolioService } from 'src/app/services/portfolio.service';
+import { PortfolioRequest } from 'src/app/models/Portfolio';
 
 @Component({
   selector: 'app-trade-view',
@@ -22,15 +24,17 @@ export class TradeViewComponent implements OnInit {
   customerOrders:any[]
   customerPendingOrders:any[]
   customerCompleteOrders:any[]
+  martketData:any[]
 
 
 
-  constructor(private orderService:OrderService) { }
+  constructor(private orderService:OrderService, private portfolioService:PortfolioService) { }
 
   ngOnInit(): void {
     this.getCustomerOrders()
     this.getCustomerPendingOrders()
     this.getCustomerCompleteOrders()
+    this.getMarketData()
     
   }
 
@@ -93,5 +97,24 @@ export class TradeViewComponent implements OnInit {
 
   }
 
+  addItemToPortfolio(orderId:number){
+    const portfolioRequest:PortfolioRequest={
+      order_id:orderId,
+      customer_id:localStorage.getItem('userId')
+
+    }
+  this.portfolioService.addItemToPortfolio(portfolioRequest).subscribe(response=>{
+    console.log(response.data)
+  })
+
+}
+
+getMarketData(){
+  this.orderService.getMartketData().subscribe(response=>{
+    this.martketData=response
+    //console.log(this.martketData)
+
+  })
+}
 
 }

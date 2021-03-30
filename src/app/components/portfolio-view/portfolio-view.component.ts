@@ -33,17 +33,7 @@ export class PortfolioViewComponent implements OnInit {
     })
   }
 
-  addItemToPortfolio(orderId:number){
-      const portfolioRequest:PortfolioRequest={
-        order_id:orderId,
-        customer_id:localStorage.getItem('userId')
-
-      }
-    this.portfolioService.addItemToPortfolio(portfolioRequest).subscribe(response=>{
-      console.log(response.data)
-    })
-
-  }
+  
 
   deleteItemfromPortfolio(itemId:number){
     this.portfolioService.deleteItemFromPportfolio(itemId).subscribe(response=>{

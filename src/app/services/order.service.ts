@@ -23,6 +23,7 @@ export class OrderService {
   pendingOrderUrl = `${environment.baseUrl}/order/customer/order/pending/${this.customerId}`
   succesfulOrderUrl = `${environment.baseUrl}/order/customer/order/pending/${this.customerId}`
   createOrderUrl = `${environment.baseUrl}/order`
+  marketDataUrl:string="https://exchange.matraining.com/md"
 
   getCustomerOrders():Observable<CustomerOrderResponse>{
     return this.http.get<CustomerOrderResponse>(this.fetchOrderUrl,HttpOptions)
@@ -38,5 +39,10 @@ export class OrderService {
   createOrder(order:Order):Observable<OrderResponse>{
   
     return this.http.post<OrderResponse>(this.createOrderUrl,order, HttpOptions)
+  }
+
+  getMartketData():Observable<any>{
+    return this.http.get<any>(this.marketDataUrl)
+
   }
 }
