@@ -39,7 +39,7 @@
                         <td>{{data.LAST_TRADED_PRICE}}</td>
                     </tr>
                 </table>
-               
+
             </div>
         </div>
         <form (ngSubmit)="createOrder()">
@@ -48,15 +48,13 @@
                 <h3>{{responseMessage}}</h3>
                 <h3 *ngIf="is_submiting">submiting....</h3>
                 <div>
-                    <select [(ngModel)]="product" name="product" class="products">
-                        <option>-select product-</option>
-                        <option value="MSFT">MSFT(Microsoft Corp.)</option>
-                        <option value="GOOGL">GOOGL(Google Inc.)</option>
-                        <option value="TSLA">TSLA(Tesla Inc.)</option>
-                        <option value="AAPL">AAPL(AAPL Inc.)</option>
-                        <option value="IBM">IBM(IBM Inc.)</option>
-                        
-                    </select>
+                    <fieldset>
+                        <legend>Product</legend>
+                        <select [(ngModel)]="product" name="product" class="products">
+                            <option default>-select product-</option>
+                            <option *ngFor="let data of marketData" value={{data.TICKER}}>{{data.TICKER}}</option>
+                        </select>
+                    </fieldset>
                 </div>
                 <div>
                     <fieldset>
@@ -113,17 +111,17 @@
 
                                     </th>
                                 </tr>
-                                <!-- <tr *ngFor="let order of customerPendingOrders">
-                                    <td>{{order.date}}</td>
-                                    <td>IBM</td>
-                                    <td>BUY</td>
-                                    <td>100</td>
-                                    <td>1.7</td>
-                                    <td>170</td>
+                                <tr *ngFor="let order of customerPendingOrders">
+                                    <td>{{order.created_at}}</td>
+                                    <td>{{order.product}}</td>
+                                    <td>{{order.side | uppercase}}</td>
+                                    <td>{{order.quantity}}</td>
+                                    <td>{{order.price}}</td>
+                                    <td>{{order.price * order.quantity}}</td>
                                     <td>
                                         <button>cancel</button>
                                     </td>
-                                </tr> -->
+                                </tr>
                             </table>
 
                         </div>
@@ -152,21 +150,19 @@
                                     <th>
                                         Total Amount
                                     </th>
-                                    <th>
-
-                                    </th>
+                                    <th></th>
                                 </tr>
-                                <!-- <tr *ngFor="let order of customerCompleteOrders">
-                                    <td>{{order.date}}</td>
-                                    <td>IBM</td>
-                                    <td>BUY</td>
-                                    <td>100</td>
-                                    <td>1.7</td>
-                                    <td>170</td>
+                                <tr *ngFor="let order of customerCompleteOrders">
+                                    <td>{{order.created_at}}</td>
+                                    <td>{{order.product}}</td>
+                                    <td>{{order.side | uppercase}}</td>
+                                    <td>{{order.quantity}}</td>
+                                    <td>{{order.price}}</td>
+                                    <td>{{order.price * order.quantity}}</td>
                                     <td>
-                                        <button>cancel</button>
+                                        <button (click)="addItemToPortfolio(order.id)">Add to portfolio</button>
                                     </td>
-                                </tr> -->
+                                </tr>
                             </table>
 
                         </div>
@@ -195,23 +191,15 @@
                                     <th>
                                         Total Amount
                                     </th>
-                                    <th>
-
-                                    </th>
                                 </tr>
-                                <!-- <tr *ngFor="let order of customerOrders">
-                                    <span *ngIf="!(order.is_success)">
-                                        <td>Feb 19, 2020 10:01:32</td>
-                                        <td>IBM</td>
-                                        <td>BUY</td>
-                                        <td>100</td>
-                                        <td>1.7</td>
-                                        <td>170</td>
-                                        <td>
-                                            <button>cancel</button>
-                                        </td>
-                                    </span>
-                                </tr> -->
+                                <tr *ngFor="let order of customerOrders">
+                                    <td>{{order.created_at}}</td>
+                                    <td>{{order.product}}</td>
+                                    <td>{{order.side | uppercase}}</td>
+                                    <td>{{order.quantity}}</td>
+                                    <td>{{order.price}}</td>
+                                    <td>{{order.price * order.quantity}}</td>
+                                </tr>
                             </table>
 
                         </div>
