@@ -29,34 +29,15 @@
                             Last Traded Price
                         </th>
                     </tr>
-                    <tr>
-                        <td>MSFT</td>
-                        <td>2.0</td>
-                        <td>5000</td>
-                        <td>1</td>
-                        <td>1.7</td>
-                        <td>10000</td>
-                        <td>1.7</td>
+                    <tr *ngFor="let data of marketData">
+                        <td>{{data.TICKER}}</td>
+                        <td>{{data.BID_PRICE}}</td>
+                        <td>{{data.SELL_LIMIT}}</td>
+                        <td>{{data.MAX_PRICE_SHIFT}}</td>
+                        <td>{{data.ASK_PRICE}}</td>
+                        <td>{{data.BUY_LIMIT}}</td>
+                        <td>{{data.LAST_TRADED_PRICE}}</td>
                     </tr>
-                    <tr>
-                        <td>NFLX</td>
-                        <td>1.55</td>
-                        <td>6000</td>
-                        <td>1</td>
-                        <td>1.7</td>
-                        <td>8000</td>
-                        <td>2.1</td>
-                    </tr>
-                    <tr>
-                        <td>GOOGL</td>
-                        <td>2.0</td>
-                        <td>5000</td>
-                        <td>1</td>
-                        <td>1.7</td>
-                        <td>10000</td>
-                        <td>1.7</td>
-                    </tr>
-
                 </table>
                
             </div>
@@ -132,8 +113,8 @@
 
                                     </th>
                                 </tr>
-                                <tr>
-                                    <td>Feb 19, 2020 10:01:32</td>
+                                <!-- <tr *ngFor="let order of customerPendingOrders">
+                                    <td>{{order.date}}</td>
                                     <td>IBM</td>
                                     <td>BUY</td>
                                     <td>100</td>
@@ -142,29 +123,7 @@
                                     <td>
                                         <button>cancel</button>
                                     </td>
-                                </tr>
-                                <tr>
-                                    <td>Feb 19, 2020 10:01:32</td>
-                                    <td>IBM</td>
-                                    <td>BUY</td>
-                                    <td>100</td>
-                                    <td>1.7</td>
-                                    <td>170</td>
-                                    <td>
-                                        <button>cancel</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Feb 19, 2020 10:01:32</td>
-                                    <td>IBM</td>
-                                    <td>BUY</td>
-                                    <td>100</td>
-                                    <td>1.7</td>
-                                    <td>170</td>
-                                    <td>
-                                        <button>cancel</button>
-                                    </td>
-                                </tr>
+                                </tr> -->
                             </table>
 
                         </div>
@@ -197,8 +156,8 @@
 
                                     </th>
                                 </tr>
-                                <tr>
-                                    <td>Feb 19, 2020 10:01:32</td>
+                                <!-- <tr *ngFor="let order of customerCompleteOrders">
+                                    <td>{{order.date}}</td>
                                     <td>IBM</td>
                                     <td>BUY</td>
                                     <td>100</td>
@@ -207,29 +166,7 @@
                                     <td>
                                         <button>cancel</button>
                                     </td>
-                                </tr>
-                                <tr>
-                                    <td>Feb 19, 2020 10:01:32</td>
-                                    <td>IBM</td>
-                                    <td>BUY</td>
-                                    <td>100</td>
-                                    <td>1.7</td>
-                                    <td>170</td>
-                                    <td>
-                                        <button>cancel</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Feb 19, 2020 10:01:32</td>
-                                    <td>IBM</td>
-                                    <td>BUY</td>
-                                    <td>100</td>
-                                    <td>1.7</td>
-                                    <td>170</td>
-                                    <td>
-                                        <button>cancel</button>
-                                    </td>
-                                </tr>
+                                </tr> -->
                             </table>
 
                         </div>
@@ -262,39 +199,19 @@
 
                                     </th>
                                 </tr>
-                                <tr>
-                                    <td>Feb 19, 2020 10:01:32</td>
-                                    <td>IBM</td>
-                                    <td>BUY</td>
-                                    <td>100</td>
-                                    <td>1.7</td>
-                                    <td>170</td>
-                                    <td>
-                                        <button>cancel</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Feb 19, 2020 10:01:32</td>
-                                    <td>IBM</td>
-                                    <td>BUY</td>
-                                    <td>100</td>
-                                    <td>1.7</td>
-                                    <td>170</td>
-                                    <td>
-                                        <button>cancel</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Feb 19, 2020 10:01:32</td>
-                                    <td>IBM</td>
-                                    <td>BUY</td>
-                                    <td>100</td>
-                                    <td>1.7</td>
-                                    <td>170</td>
-                                    <td>
-                                        <button>cancel</button>
-                                    </td>
-                                </tr>
+                                <!-- <tr *ngFor="let order of customerOrders">
+                                    <span *ngIf="!(order.is_success)">
+                                        <td>Feb 19, 2020 10:01:32</td>
+                                        <td>IBM</td>
+                                        <td>BUY</td>
+                                        <td>100</td>
+                                        <td>1.7</td>
+                                        <td>170</td>
+                                        <td>
+                                            <button>cancel</button>
+                                        </td>
+                                    </span>
+                                </tr> -->
                             </table>
 
                         </div>

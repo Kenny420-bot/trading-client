@@ -23,6 +23,7 @@ export class LoginRegisterComponent implements OnInit {
   constructor(private authService:AuthenticationService, private router:Router) { }
   
   ngOnInit(): void {
+    this.authService.isUserLoggedIn()
   }
  
   loginUser(){

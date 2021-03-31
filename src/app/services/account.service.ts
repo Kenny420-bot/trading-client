@@ -13,6 +13,7 @@ const HttpOptions = {
 @Injectable({
   providedIn: 'root'
 })
+
 export class AccountService {
 
   constructor(private http:HttpClient) { }
@@ -20,8 +21,6 @@ export class AccountService {
   topUpBalanceUrl:string=`${environment.baseUrl}/customer/topup/balance/${localStorage.getItem('userId')}`
   
   topUpAccount(balance:BalanceRequest):Observable<BalanceResponse>{
-
     return this.http.put<BalanceResponse>(this.topUpBalanceUrl,balance, HttpOptions)
-
   }
 }

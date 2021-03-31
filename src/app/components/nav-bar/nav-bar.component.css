@@ -69,3 +69,26 @@
     font-weight: 300;
     color: var(--partial-white);
 }   
+.nav-bar .side-two .logout_btn{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 30px; 
+    padding: 5px 20px;
+    background: transparent;
+    color: var(--partial-white);
+    border: 0;
+    transition: all .3s ease;
+    font-size: .8rem;
+    border-left: 1px dotted var(--partial-white);
+}
+.nav-bar .side-two .logout_btn:hover{
+    cursor: pointer;
+    color: var(--primary-color);
+}
+.nav-bar .side-two .logout_btn span{
+    margin-left: 5px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+

@@ -23,11 +23,8 @@ export class PortfolioService {
     return this.http.get<PortfolioResponse>(this.userPortfolioUrl, HttpOptions)
   }
 
-
   addItemToPortfolio(portfolioRequest:PortfolioRequest):Observable<Portfolio>{
-    
     return this.http.post<Portfolio>(this.userPortfolioUrl, portfolioRequest, HttpOptions)
-
   }
 
   deleteItemFromPportfolio(itemId:number):Observable<any>{

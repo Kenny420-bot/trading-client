@@ -26,6 +26,7 @@ export class OrderService {
   marketDataUrl:string="https://exchange.matraining.com/md"
 
   getCustomerOrders():Observable<CustomerOrderResponse>{
+    console.log("Environment: "+environment.baseUrl);
     return this.http.get<CustomerOrderResponse>(this.fetchOrderUrl,HttpOptions)
   }
 

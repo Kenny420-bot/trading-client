@@ -18,7 +18,7 @@
                 <mat-tab-group>
                     <mat-tab>
                         <ng-template mat-tab-label>
-                            <mat-icon style="margin-right: 10px;" class="example-tab-icon">account_circle</mat-icon>
+                            <mat-icon class="tab-icon" style="margin-right: 10px;" class="example-tab-icon">account_circle</mat-icon>
                             Login
                         </ng-template>
                         <form class="login-form" (ngSubmit)="loginUser()">
@@ -39,13 +39,13 @@
                                 </button>
                             </mat-form-field>
                             
-                            <button  class="full-width" mat-raised-button
+                            <button  class="main-btn full-width" mat-raised-button
                                 color="primary" type="submit">Login</button>
                         </form>
                     </mat-tab>
                     <mat-tab>
                         <ng-template mat-tab-label>
-                            <mat-icon style="margin-right: 10px;" class="example-tab-icon">assignment_ind</mat-icon>
+                            <mat-icon class="tab-icon" style="margin-right: 10px;" class="example-tab-icon">assignment_ind</mat-icon>
                             Register
                         </ng-template>
                         <form class="register-form" (ngSubmit)="registerUser()">
@@ -85,7 +85,7 @@
                                 </button>
 
                             </mat-form-field>
-                            <button class="full-width" mat-raised-button
+                            <button class="main-btn full-width" mat-raised-button
                                 color="primary" type="submit">Register</button>
                         </form>
                     </mat-tab>

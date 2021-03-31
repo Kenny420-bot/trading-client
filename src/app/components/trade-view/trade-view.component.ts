@@ -3,6 +3,7 @@ import { Order } from 'src/app/models/Order';
 import { OrderService } from 'src/app/services/order.service';
 import { PortfolioService } from 'src/app/services/portfolio.service';
 import { PortfolioRequest } from 'src/app/models/Portfolio';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-trade-view',
@@ -24,13 +25,15 @@ export class TradeViewComponent implements OnInit {
   customerOrders:any[]
   customerPendingOrders:any[]
   customerCompleteOrders:any[]
-  martketData:any[]
+
+  marketData:any[]
 
 
 
-  constructor(private orderService:OrderService, private portfolioService:PortfolioService) { }
+  constructor(private orderService:OrderService, private portfolioService:PortfolioService, private authService:AuthenticationService) { }
 
   ngOnInit(): void {
+    this.authService.isUserLoggedIn()
     this.getCustomerOrders()
     this.getCustomerPendingOrders()
     this.getCustomerCompleteOrders()
@@ -48,7 +51,7 @@ export class TradeViewComponent implements OnInit {
       }
       this.is_loading=false
       this.customerOrders = response.data
-      console.log(this.customerOrders)
+      console.log('Order: '+ this.customerOrders)
     })
   }
   getCustomerPendingOrders(){
@@ -60,6 +63,7 @@ export class TradeViewComponent implements OnInit {
       }
       this.is_loading=false
       this.customerPendingOrders = response.data
+      console.log('Pending Order: '+ this.customerPendingOrders)
     })
   }
 
@@ -72,6 +76,7 @@ export class TradeViewComponent implements OnInit {
       }
       this.is_loading=false
       this.customerCompleteOrders = response.data
+      console.log('Complete Order: '+ this.customerCompleteOrders)
       
     })
   }
@@ -93,6 +98,7 @@ export class TradeViewComponent implements OnInit {
       }
       this.is_submiting=false
       this.responseMessage=response.message
+      console.log(response)
     })
 
   }
@@ -111,9 +117,7 @@ export class TradeViewComponent implements OnInit {
 
 getMarketData(){
   this.orderService.getMartketData().subscribe(response=>{
-    this.martketData=response
-    //console.log(this.martketData)
-
+    this.marketData=response
   })
 }
 
